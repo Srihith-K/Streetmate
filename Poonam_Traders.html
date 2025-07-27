@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Poonam TradersTraders</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #0d6efd !important; 
+    }
+
+    h1, h2 {
+      color: #0d6efd;
+      font-weight: 700;
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .contact-buttons .btn {
+      border-radius: 25px;
+    }
+
+    .card {
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    }
+
+    .category-icon {
+      font-size: 2rem;
+    }
+
+    footer {
+      background-color: #242dcc;
+      color: white;
+      padding: 20px 0;
+    }
+
+    .hero-section {
+      background: url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=1200&h=400&fit=crop') no-repeat center center; 
+      background-size: cover; 
+      padding: 80px 20px;
+      color: white; 
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      min-height: 300px; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; 
+      position: relative; 
+      overflow: hidden; 
+    }
+
+    .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); 
+        border-radius: 10px; 
+        z-index: 0; 
+    }
+
+    .hero-section h1,
+    .hero-section p.lead {
+        position: relative;
+        z-index: 1; 
+    }
+
+    .hero-section h1 {
+      color: white;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.8); 
+      font-size: 3.5rem; 
+      margin-bottom: 15px;
+    }
+
+    .hero-section p.lead {
+      color: #e9ecef; 
+      font-size: 1.25rem;
+      max-width: 700px; 
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6); 
+    }
+
+    .categories-bg {
+      background: url('https://www.transparenttextures.com/patterns/white-wall-3.png');
+      background-color: #f1f3f5; 
+      padding: 40px 20px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.05);   
+    }
+
+    .categories-bg h2 {
+        margin-bottom: 30px;
+    }
+
+    .categories-bg .row.justify-content-center .col-md-2 {
+        margin-bottom: 15px; 
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 60px 15px;
+            min-height: 250px;
+        }
+        .hero-section h1 {
+            font-size: 2.5rem;
+        }
+        .hero-section p.lead {
+            font-size: 1rem;
+        }
+        .categories-bg {
+            padding: 30px 15px;
+        }
+    }
+
+    /* Additional styles for supplier profile */
+    .supplier-header {
+      background: linear-gradient(135deg, #0d6efd, #198754);
+      color: white;
+      padding: 2rem 0;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .supplier-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+    }
+
+    .rating-stars {
+      color: #ffc107;
+      font-size: 1.5rem;
+    }
+
+    .rating-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #0d6efd;
+    }
+
+    .item-card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .item-price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #198754;
+    }
+
+    .comment-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .comment-rating {
+      color: #ffc107;
+    }
+
+    .contact-section {
+      background: linear-gradient(45deg, #0d6efd, #6610f2);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .contact-btn {
+      background: white;
+      color: #0d6efd;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-weight: 600;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .badge-custom {
+      background: #198754;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+    }
+
+    .stats-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .stats-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #0d6efd;
+    }
+
+    .back-btn {
+      background: #6c757d;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #495057;
+      color: white;
+      text-decoration: none;
+    }
+
+    .rice-icon {
+      color: #0d6efd;
+      font-size: 1.2rem;
+      margin-right: 8px;
+    }
+
+    .premium-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #dc3545;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 10px;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">🛒 StreetMate</a>
+        <div class="navbar-nav ms-auto">
+          <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left me-2"></i>Back to Suppliers
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Supplier Header -->
+    <section class="container mt-4">
+      <div class="supplier-header">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <h1 class="text-white mb-2">Poonam TradersTraders</h1>
+              <p class="lead mb-2"><i class="fas fa-seedling me-2"></i>Premium Rice Varieties & Grain Supplier</p>
+              <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Kurnool, Andhra Pradesh</p>
+              <span class="badge-custom">Verified Supplier</span>
+              <span class="badge-custom ms-2">Quality Assured</span>
+              <span class="badge-custom ms-2">10+ Years Experience</span>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="rating-number">4.7</div>
+              <div class="rating-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <p class="small mb-0 mt-1">Based on 189 reviews</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="container mb-4">
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="stats-card">
+            <div class="stats-number">850+</div>
+            <p class="mb-0 text-muted">Orders Completed</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-card">
+            <div class="stats-number">5</div>
+            <p class="mb-0 text-muted">Rice Varieties</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-card">
+            <div class="stats-number">6hrs</div>
+            <p class="mb-0 text-muted">Response Time</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-card">
+            <div class="stats-number">96%</div>
+            <p class="mb-0 text-muted">Customer Satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="container mb-5">
+      <h2 class="mb-4"><i class="fas fa-seedling rice-icon"></i>Premium Rice Varieties</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="card item-card h-100">
+            <div style="position: relative;">
+              <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=200&fit=crop" class="card-img-top" alt="Regular Rice">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-seedling rice-icon"></i>Regular Rice</h5>
+              <p class="card-text">High-quality regular rice, perfect for daily meals and bulk cooking. Excellent taste and nutrition value.</p>
+              <div class="item-price">₹30/kg</div>
+              <small class="text-muted">Min. Order: 25kg</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card item-card h-100">
+            <div style="position: relative;">
+              <img src="https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?w=400&h=200&fit=crop" class="card-img-top" alt="Basmati Rice">
+              <div class="premium-badge">PREMIUM</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-star rice-icon"></i>Basmati Rice</h5>
+              <p class="card-text">Aromatic long-grain basmati rice with exceptional fragrance and taste. Perfect for biryanis and special occasions.</p>
+              <div class="item-price">₹60/kg</div>
+              <small class="text-muted">Min. Order: 10kg</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card item-card h-100">
+            <div style="position: relative;">
+              <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=200&fit=crop" class="card-img-top" alt="Sona Masoori">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-gem rice-icon"></i>Sona Masoori</h5>
+              <p class="card-text">Premium medium-grain rice from Andhra Pradesh. Lightweight and aromatic, ideal for South Indian dishes.</p>
+              <div class="item-price">₹38/kg</div>
+              <small class="text-muted">Min. Order: 20kg</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card item-card h-100">
+            <div style="position: relative;">
+              <img src="https://images.unsplash.com/photo-1551326844-4df70f78d0e9?w=400&h=200&fit=crop" class="card-img-top" alt="Idli Rice">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-circle rice-icon"></i>Idli Rice</h5>
+              <p class="card-text">Specially selected short-grain rice perfect for making soft idlis and dosas. Traditional South Indian variety.</p>
+              <div class="item-price">₹36/kg</div>
+              <small class="text-muted">Min. Order: 15kg</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card item-card h-100">
+            <div style="position: relative;">
+              <img src="https://images.unsplash.com/photo-1599909663268-3db4c39f5e08?w=400&h=200&fit=crop" class="card-img-top" alt="Brown Rice">
+              <div class="premium-badge">HEALTHY</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-leaf rice-icon"></i>Brown Rice</h5>
+              <p class="card-text">Nutritious whole grain brown rice rich in fiber and vitamins. Ideal for health-conscious customers and diet plans.</p>
+              <div class="item-price">₹40/kg</div>
+              <small class="text-muted">Min. Order: 10kg</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="container mb-5">
+      <h2 class="mb-4">Customer Reviews</h2>
+      
+      <!-- Add Review Form -->
+      <div class="card mb-4" style="background: #f8f9fa; border: 2px dashed #0d6efd;">
+        <div class="card-body">
+          <h5 class="card-title text-primary">
+            <i class="fas fa-plus-circle me-2"></i>Add Your Review
+          </h5>
+          <form id="reviewForm">
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="reviewerName" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="reviewerName" placeholder="Enter your name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="reviewRating" class="form-label">Rating</label>
+                <select class="form-select" id="reviewRating" required>
+                  <option value="">Select rating</option>
+                  <option value="5">⭐⭐⭐⭐⭐ (5 stars)</option>
+                  <option value="4">⭐⭐⭐⭐ (4 stars)</option>
+                  <option value="3">⭐⭐⭐ (3 stars)</option>
+                  <option value="2">⭐⭐ (2 stars)</option>
+                  <option value="1">⭐ (1 star)</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="reviewComment" class="form-label">Your Review</label>
+              <textarea class="form-control" id="reviewComment" rows="3" placeholder="Share your experience with Poonam TradersTraders..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-paper-plane me-2"></i>Submit Review
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row" id="reviewsContainer">
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="container mb-5">
+      <div class="contact-section">
+        <h2 class="text-white mb-3">Ready to Order Premium Rice?</h2>
+        <p class="lead mb-4">Contact Poonam TradersTraders for bulk orders and wholesale pricing on quality rice varieties</p>
+        <div class="contact-buttons">
+          <button class="contact-btn">
+            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+          </button>
+          <button class="contact-btn">
+            <i class="fas fa-envelope me-2"></i>Email
+          </button>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <p class="mb-1"><i class="fab fa-whatsapp me-2"></i>WhatsApp: +91 98765 54321</p>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"><i class="fas fa-envelope me-2"></i>sai@ricetraders.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-1">📞 Contact Us: <a href="mailto:support@sairicetraders.com" class="text-white text-decoration-none">support@sairicetraders.com</a></p>
+      <p class="mb-1">📍 Kurnool, Andhra Pradesh, India</p>
+      <p>&copy; 2025 Poonam TradersTraders. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Sample reviews data
+    const reviews = [
+      {
+        name: "Lakshmi Devi",
+        rating: 5,
+        comment: "Excellent basmati rice quality! The aroma and taste are amazing. Been ordering for our restaurant for 2 years. Sai garu always ensures fresh stock and timely delivery.",
+        date: "3 days ago"
+      },
+      {
+        name: "Ravi Kumar",
+        rating: 5,
+        comment: "Best Sona Masoori in Kurnool! Perfect for our South Indian meals. The rice cooks evenly and has great texture. Highly recommend for bulk orders.",
+        date: "1 week ago"
+      },
+      {
+        name: "Padma Sharma",
+        rating: 4,
+        comment: "Good quality idli rice. Makes soft and fluffy idlis every time. Pricing is reasonable and Sai ji is very honest in business. Will continue ordering.",
+        date: "2 weeks ago"
+      },
+      {
+        name: "Venkat Reddy",
+        rating: 5,
+        comment: "Brown rice quality is exceptional! Perfect for health-conscious customers. Clean, well-packaged, and delivered on time. Great service from Poonam TradersTraders.",
+        date: "3 weeks ago"
+      },
+      {
+        name: "Anitha Rao",
+        rating: 4,
+        comment: "Regular rice quality is consistent and good value for money. Been buying for our mess for 6 months. Sometimes delivery can be delayed during festival season.",
+        date: "1 month ago"
+      }
+    ];
+
+    // Function to create star rating HTML
+    function createStarRating(rating) {
+      let stars = '';
+      for (let i = 1; i <= 5; i++) {
+        if (i <= rating) {
+          stars += '<i class="fas fa-star"></i>';
+        } else {
+          stars += '<i class="far fa-star"></i>';
+        }
+      }
+      return stars;
+    }
+
+    // Function to create review HTML
+    function createReviewHTML(review) {
+      return `
+        <div class="col-lg-6 mb-4">
+          <div class="comment-card">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h6 class="mb-1">${review.name}</h6>
+                <div class="comment-rating">
+                  ${createStarRating(review.rating)}
+                </div>
+              </div>
+              <small class="text-muted">${review.date}</small>
+            </div>
+            <p class="mb-0">"${review.comment}"</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // Function to display all reviews
+    function displayReviews() {
+      const reviewsContainer = document.getElementById('reviewsContainer');
+      reviewsContainer.innerHTML = '';
+      reviews.forEach(review => {
+        reviewsContainer.innerHTML += createReviewHTML(review);
+      });
+    }
+
+    // Function to handle form submission
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('reviewerName').value;
+      const rating = parseInt(document.getElementById('reviewRating').value);
+      const comment = document.getElementById('reviewComment').value;
+      
+      if (name && rating && comment) {
+        // Add new review to the beginning of the array
+        const newReview = {
+          name: name,
+          rating: rating,
+          comment: comment,
+          date: "Just now"
+        };
+        
+        reviews.unshift(newReview);
+        
+        // Clear the form
+        document.getElementById('reviewForm').reset();
+        
+        // Re-display reviews
+        displayReviews();
+        
+        // Show success message
+        alert('Thank you for your review!');
+      }
+    });
+
+    // Back button functionality
+    document.querySelector('.back-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.history.back();
+    });
+
+    // Display initial reviews when page loads
+    displayReviews();
+  </script>
+</body>
+</html>
